@@ -36,7 +36,6 @@
   (let [count-tables "SELECT COUNT(*) FROM information_schema.tables 
                       WHERE table_name = 'pastes'"
         pastes (first (jdbc/query db-spec [count-tables]))]
-    (println pastes)
     (when (= (:count pastes) 0)
       (create-table db-spec :pastes
                     [:id :serial :primary :key]

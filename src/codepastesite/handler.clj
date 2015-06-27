@@ -16,14 +16,14 @@
   (GET "/api/pastes" [] (response (db/find-all-pastes)))
   (GET "/api/pastes/:id" [id] (response (db/find-paste (Long. id))))
   (POST "/api/pastes" [title content syntax visibility expires]
-        (println "post request received")
-        (println (str title " " content " " syntax " " visibility))
         (response (db/create-paste title content syntax visibility expires)))
   (route/resources "/")
   (route/not-found "Not Found"))
 
 (def app
-  (wrap-json-params (wrap-json-response (wrap-defaults app-routes (assoc-in site-defaults [:security :anti-forgery] false)))))
+  (wrap-json-params
+   (wrap-json-response
+    (wrap-defaults app-routes (assoc-in site-defaults [:security :anti-forgery] false)))))
 
 (defn -main []
   (db/migrate)
