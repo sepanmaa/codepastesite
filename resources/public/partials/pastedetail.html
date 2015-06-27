@@ -1,0 +1,13 @@
+<h3>{{paste.title}}</h3>
+
+<div ng-if="!nohighlight" hljs language="{{syntax}}" source=paste.content></div>
+
+<pre ng-if="nohighlight"><code>{{paste.content}}</code></pre>
+
+<label for="rawdata">Raw data</label>
+<textarea rows="10" class="form-control" id="rawdata">{{paste.content}}</textarea>
+
+<a href="#/pastes">Create new paste</a>
+
+
+
