@@ -9,10 +9,9 @@
                  [ring/ring-json "0.3.1"]
                  [ring/ring-jetty-adapter "1.4.0-RC1"]
                  [ring/ring-defaults "0.1.5"]]
-;  :plugins [[lein-ring "0.9.6"]]
-                                        ;  :ring {:handler codepastesite.handler/app}
   :main ^:skip-aot codepastesite.handler
   :uberjar-name "codepastesite-standalone.jar"
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
-                        [ring/ring-mock "0.2.0"]]}})
+                        [ring/ring-mock "0.2.0"]]}
+   :uberjar {:aot :all}})
