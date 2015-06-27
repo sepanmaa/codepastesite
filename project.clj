@@ -12,6 +12,7 @@
 ;  :plugins [[lein-ring "0.9.6"]]
                                         ;  :ring {:handler codepastesite.handler/app}
   :main ^:skip-aot codepastesite.handler
+  :uberjar-name "codepastesite-standalone.jar"
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring/ring-mock "0.2.0"]]}})
